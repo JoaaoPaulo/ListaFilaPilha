@@ -32,7 +32,7 @@ no *fim3 = NULL;
     for(i=0; i<10; i++){
         no *novo=malloc(sizeof(no));
         printf("\nNome pessoa %d: ", i+1);
-        scanf("%c", novo->nome);
+        scanf("%s", novo->nome);
         printf("\nIdade pessoa %d: ", i+1);
         scanf("%d", &novo->idade);
         
@@ -52,40 +52,38 @@ no *fim3 = NULL;
 
     temp = inicio1;
     while(temp){
-        no *novo=malloc(sizeof(no));
+        no *aux = temp->proximo;
+        temp->proximo = NULL;
 
         if(temp->idade <= 30){
             if(fim2){
-                fim2->proximo = novo;
-                fim2 = novo;
-                novo = temp;
+                fim2->proximo = temp;
+                fim2 = temp;
             }else{
-                inicio2 = novo;
-                fim2 = novo;
-                novo = temp;
+                inicio2 = temp;
+                fim2 = temp;
             }
         }
         else{
             if(fim3){
-                fim3->proximo = novo;
-                fim3 = novo;
-                novo = temp;
+                fim3->proximo = temp;
+                fim3 = temp;
             }else{
-                inicio3 = novo;
-                fim3 = novo;
-                novo = temp;
+                inicio3 = temp;
+                fim3 = temp;
             }
         }
         
-        inicio1 = inicio1->proximo;
-        free(temp);
+        temp = aux;
     }
 
+    inicio1 = NULL;
+    fim1 = NULL;
 
     temp = inicio2;
     printf("ATÉ 30\n\n");
     while(inicio2){
-        printf("%c\n", inicio2->nome);
+        printf("%s\n", inicio2->nome);
         printf("%d\n\n", inicio2->idade);
         
         temp = inicio2;

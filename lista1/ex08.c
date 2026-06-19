@@ -60,6 +60,6 @@ int main(){
         inicio=temp->proximo;
         free(temp);
         temp=inicio; //fila destrutiva, só dá pra imprimir uma vez
-    }
+x   }
 }
 
