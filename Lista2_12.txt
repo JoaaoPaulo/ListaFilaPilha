@@ -9,3 +9,5 @@ c) Pop
 d) Push
 
 e) Peek
+
+resposta: c

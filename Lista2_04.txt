@@ -24,3 +24,5 @@ typedef struct{
 9    return no;
 10 }
 ```
+
+a condição do while testa duas coisas antes de avançar o aux: primeiro se aux não é NULL (se já chegou no fim da lista e não achou o valor) e depois se aux->valor é diferente do num procurado. essa ordem importa porque o C avalia da esquerda pra direita e para no primeiro falso (curto-circuito), então só vai acessar aux->valor se aux ainda não for NULL, evitando acessar um endereço inválido. enquanto as duas condições forem verdadeiras (ainda tem nó e o valor não é o procurado) ele continua andando pra frente com aux = aux->proximo, até achar o valor ou chegar no final da lista.

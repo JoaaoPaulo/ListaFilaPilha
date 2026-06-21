@@ -40,3 +40,14 @@
 37   return 0;
 38 }
 ```
+
+acao_1 sempre insere no início (igual um push de pilha) e acao_2 remove o início (igual um pop). seguindo a execução:
+acao_1(71) -> pilha: 71
+acao_1(8) -> pilha: 8 -> 71
+acao_1(15) -> pilha: 15 -> 8 -> 71
+acao_2() -> remove o 15 -> pilha: 8 -> 71
+acao_1(19) -> pilha: 19 -> 8 -> 71
+
+         +-------+      +-------+      +-------+
+p ----->  |  19   | ---> |   8   | ---> |  71   | ---> NULL
+         +-------+      +-------+      +-------+

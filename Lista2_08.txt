@@ -11,3 +11,5 @@ c) Em uma pilha, os elementos podem ser removidos de qualquer posição, mas só
 d) Uma pilha é uma estrutura de dados que segue o princípio de último a entrar, primeiro a sair (LIFO).
 
 e) Em uma pilha, a remoção de elementos só é permitida no final, enquanto a inserção é permitida em qualquer posição.
+
+resposta: d

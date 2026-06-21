@@ -48,3 +48,196 @@
  *   - Fila: enqueue (enfileirar) e dequeue (desenfileirar);
  *   - Pilha: push (empilhar) e pop (desempilhar).
  */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+typedef struct sorteado_no{
+    char *nome;
+    int retirado;
+    struct sorteado_no *proximo;
+} sorteado;
+
+typedef struct fila_no{
+    char *nome;
+    struct fila_no *proximo;
+} pessoaFila;
+
+typedef struct pilha_no{
+    int numero;
+    struct pilha_no *proximo;
+} pizza;
+
+void cadastrarSorteado();
+void imprimirLista();
+void enfileirar();
+void empilharPizza();
+void entregar();
+void imprimirFila();
+void imprimirPilha();
+
+sorteado *listaInicio = NULL;
+pessoaFila *filaInicio = NULL;
+pessoaFila *filaFim = NULL;
+pizza *pilhaTop = NULL;
+int contadorPizza = 1;
+
+int main(){
+    int opcao;
+
+    do{
+        system("cls");
+        printf("1. Cadastrar sorteado na LISTA\n");
+        printf("2. Inserir sorteado na FILA de atendimento\n");
+        printf("3. Empilhar pizza pronta na PILHA\n");
+        printf("4. Imprimir LISTA de sorteados\n");
+        printf("5. Imprimir FILA de atendimento\n");
+        printf("6. Imprimir PILHA de pizzas\n");
+        printf("7. Realizar entrega\n");
+        printf("8. Sair\n");
+        scanf("%d", &opcao);
+
+        switch(opcao){
+            case 1:
+                cadastrarSorteado();
+                break;
+            case 2:
+                enfileirar();
+                break;
+            case 3:
+                empilharPizza();
+                break;
+            case 4:
+                imprimirLista();
+                break;
+            case 5:
+                imprimirFila();
+                break;
+            case 6:
+                imprimirPilha();
+                break;
+            case 7:
+                entregar();
+                break;
+        }
+    } while(opcao != 8);
+
+    return 0;
+}
+
+void cadastrarSorteado(){
+    sorteado *novo = malloc(sizeof(sorteado));
+    char buffer[100];
+
+    printf("Nome do sorteado: ");
+    scanf("%s", buffer);
+    novo->nome = malloc(strlen(buffer) + 1);
+    strcpy(novo->nome, buffer);
+    novo->retirado = 0;
+    novo->proximo = NULL;
+
+    if(listaInicio == NULL){
+        listaInicio = novo;
+    } else{
+        sorteado *aux = listaInicio;
+        while(aux->proximo)
+            aux = aux->proximo;
+        aux->proximo = novo;
+    }
+
+    printf("Sorteado cadastrado!");
+    system("pause");
+}
+
+void imprimirLista(){
+    sorteado *temp = listaInicio;
+    while(temp){
+        if(temp->retirado)
+            printf("%s - Pizza Retirada\n", temp->nome);
+        else
+            printf("%s - Aguardando\n", temp->nome);
+        temp = temp->proximo;
+    }
+    system("pause");
+}
+
+void enfileirar(){
+    pessoaFila *novo = malloc(sizeof(pessoaFila));
+    char buffer[100];
+
+    printf("Nome de quem chegou: ");
+    scanf("%s", buffer);
+    novo->nome = malloc(strlen(buffer) + 1);
+    strcpy(novo->nome, buffer);
+    novo->proximo = NULL;
+
+    if(filaFim){
+        filaFim->proximo = novo;
+        filaFim = novo;
+    } else{
+        filaInicio = novo;
+        filaFim = novo;
+    }
+
+    printf("Inserido na fila!");
+    system("pause");
+}
+
+void imprimirFila(){
+    pessoaFila *temp = filaInicio;
+    while(temp){
+        printf("%s\n", temp->nome);
+        temp = temp->proximo;
+    }
+    system("pause");
+}
+
+void empilharPizza(){
+    pizza *novo = malloc(sizeof(pizza));
+    novo->numero = contadorPizza;
+    contadorPizza++;
+    novo->proximo = pilhaTop;
+    pilhaTop = novo;
+
+    printf("Pizza %d empilhada!", novo->numero);
+    system("pause");
+}
+
+void imprimirPilha(){
+    pizza *temp = pilhaTop;
+    while(temp){
+        printf("Pizza %d\n", temp->numero);
+        temp = temp->proximo;
+    }
+    system("pause");
+}
+
+void entregar(){
+    if(filaInicio == NULL || pilhaTop == NULL){
+        printf("Nao ha pessoa na fila ou pizza na pilha para entregar.");
+        system("pause");
+        return;
+    }
+
+    pessoaFila *pessoa = filaInicio;
+    filaInicio = filaInicio->proximo;
+    if(filaInicio == NULL)
+        filaFim = NULL;
+
+    pizza *pizzaEntregue = pilhaTop;
+    pilhaTop = pilhaTop->proximo;
+
+    sorteado *aux = listaInicio;
+    while(aux && strcmp(aux->nome, pessoa->nome) != 0)
+        aux = aux->proximo;
+    if(aux)
+        aux->retirado = 1;
+
+    printf("%s recebeu a pizza %d!", pessoa->nome, pizzaEntregue->numero);
+
+    free(pessoa->nome);
+    free(pessoa);
+    free(pizzaEntregue);
+    system("pause");
+}

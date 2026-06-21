@@ -9,3 +9,5 @@ c) Tem como característica principal que o último nó da lista aponta para o p
 d) Na implementação, o programador deve ter o cuidado para que a estrutura não entre um loop infinito.
 
 e) Possui um nó inicial e a partir dele é possível percorrer toda a lista em uma única direção, do início para o fim.
+
+resposta: e

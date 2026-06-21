@@ -9,3 +9,5 @@ c) Armazenamento de variáveis locais.
 d) Implementação de árvores binárias.
 
 e) Controle de memória cache LIFO.
+
+resposta: b

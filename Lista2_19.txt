@@ -9,3 +9,5 @@ c) Listas encadeadas não permitem inserção dinâmica de elementos.
 d) O acesso aos elementos ocorre exclusivamente de trás para frente.
 
 e) As listas encadeadas não utilizam ponteiros.
+
+resposta: b

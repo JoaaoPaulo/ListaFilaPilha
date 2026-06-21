@@ -9,3 +9,5 @@ c) O primeiro elemento inserido é o primeiro elemento removido da fila.
 d) Os elementos podem ser removidos de qualquer posição da fila.
 
 e) A fila permite inserções apenas no início da estrutura.
+
+resposta: c

@@ -9,3 +9,5 @@ c) Controle de chamadas telefônicas.
 d) Histórico de navegação de páginas em navegadores.
 
 e) Armazenamento permanente em banco de dados.
+
+resposta: d

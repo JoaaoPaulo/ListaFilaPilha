@@ -52,3 +52,5 @@ int main(void) {
 ```
 
 **1)** Com base no código fonte acima escrito em linguagem C, apresente exatamente o resultado que será apresentado ao usuário após a execução completa do programa.
+
+10 30 20 40 50

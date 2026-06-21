@@ -9,3 +9,5 @@ c) O último nó aponta para o primeiro nó da lista.
 d) O último nó armazena obrigatoriamente valor nulo.
 
 e) A lista circular não possui nó inicial.
+
+resposta: c

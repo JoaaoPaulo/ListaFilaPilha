@@ -9,3 +9,5 @@ c) Insere um novo elemento no topo da pilha.
 d) Remove todos os elementos da pilha.
 
 e) Ordena os elementos da pilha automaticamente.
+
+resposta: c

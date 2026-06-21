@@ -1,1 +1,5 @@
 **6)** Apresente as características acerca de Listas Circulares, bem como, um modelo prático do nosso dia a dia.
+
+numa lista circular o último nó não aponta para NULL, ele aponta de volta para o primeiro nó da lista, formando um ciclo. com isso não existe um "fim" de fato, dá pra percorrer a lista indefinidamente a partir de qualquer nó. também é possível ter um ponteiro tipo "atual" que vai girando entre os nós sem precisar voltar pro início toda hora.
+
+um exemplo prático do dia a dia é um jogo de tabuleiro com vários jogadores: cada jogador joga e passa a vez pro próximo, e quando chega no último jogador a vez volta pro primeiro de novo, igual uma lista circular.

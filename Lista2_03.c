@@ -63,3 +63,74 @@
  * 59   system("pause");
  * 60   return 0;}
  */
+
+#include <stdlib.h>
+#include <stdio.h>
+
+typedef struct apelido_no{
+    int dado;
+    struct apelido_no *proximo;
+} no;
+
+no *top = NULL;
+//--------------------------------
+int entrada_dados(){
+    int valor;
+    printf("\nValor a empilhar: ");
+    scanf("%d", &valor);
+    return valor;
+}
+//--------------------------------
+void push(int item){
+    no *novo = malloc(sizeof(no));
+    novo->dado = item;
+    novo->proximo = top;
+    top = novo;
+    system("pause");
+}
+//--------------------------------
+void pop(){
+    if (top == NULL)
+        printf("A pilha esta vazia\n");
+    else{
+        no *temp;
+        temp = top;
+        top = top->proximo;
+        free(temp);
+    }
+    system("pause");
+}
+//--------------------------------
+void sair(){
+    no *temp;
+    while(top){
+        temp = top;
+        top = top->proximo;
+        free(temp);
+    }
+}
+//--------------------------------
+int main(){
+    int n, opcao;
+    do{
+        system("cls");
+        printf("\nMenu\n1. Empilha");
+        printf("\n2. Desempilha\n3. Sair");
+        printf("\nOpcao (0-3):");
+        scanf("%d", &opcao);
+        switch (opcao){
+            case 1:
+                n = entrada_dados();
+                push(n); //empilhar
+                break;
+            case 2:
+                pop(); //desempilhar
+                break;
+            case 3:
+                sair();
+                break;
+        }
+    } while (opcao != 3);
+    system("pause");
+    return 0;
+}

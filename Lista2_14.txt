@@ -9,3 +9,5 @@ c) O último nó aponta obrigatoriamente para o primeiro.
 d) Os elementos só podem ser inseridos no final da lista.
 
 e) A estrutura utiliza obrigatoriamente memória sequencial.
+
+resposta: b

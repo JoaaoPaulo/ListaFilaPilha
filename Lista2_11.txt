@@ -9,3 +9,5 @@ c) A lista permite percorrer os elementos apenas do início para o fim.
 d) Cada nó possui referência para o próximo e para o elemento anterior.
 
 e) Os elementos não podem ser removidos da estrutura.
+
+resposta: d

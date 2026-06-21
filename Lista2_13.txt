@@ -9,3 +9,5 @@ c) A fila circular permite apenas uma inserção de dados.
 d) Os elementos são acessados aleatoriamente.
 
 e) A fila circular elimina completamente o conceito FIFO.
+
+resposta: b
